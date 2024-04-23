@@ -69,7 +69,7 @@
        [outputs (transaction-outputs t)]
        [value (transaction-value t)]
        [inputs-sum
-        (foldr + 0 (map (lambda (i) (transaction-io-value i)) inputs))]
+        (foldr + 0 (map (λ (i) (transaction-io-value i)) inputs))]
        [leftover (- inputs-sum value)]
        [new-outputs
         (list
@@ -100,10 +100,10 @@
 ; A transaction is valid if...
 (define (valid-transaction? t)
   (let ([sum-inputs
-         (foldr + 0 (map (lambda (t) (transaction-io-value t))
+         (foldr + 0 (map (λ (t) (transaction-io-value t))
                          (transaction-inputs t)))]
         [sum-outputs
-         (foldr + 0 (map (lambda (t) (transaction-io-value t))
+         (foldr + 0 (map (λ (t) (transaction-io-value t))
                          (transaction-outputs t)))])
     (and
      ; Its signature is valid
